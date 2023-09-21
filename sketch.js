@@ -26,6 +26,8 @@ function setup() {
 
   chao = Bodies.rectangle(200,580,400,20, chao_options);
   World.add(world, chao);
+
+   leftWall = new Wall(-100, 300, 5, 800);
 }
 
 function draw() {
@@ -33,4 +35,6 @@ function draw() {
   Engine.update(engine);
   rect(chao.position.x, chao.position.y, 550, 40);
   ellipse(ball.position.x,ball.position.y,20);
+
+   leftWall.display()
 }
