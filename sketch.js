@@ -18,8 +18,8 @@ function preload(){
 
 function setup() {
   var canvas = createCanvas(400, 600);
-  canvas.center()
-
+  //canvas.center()
+canvas.position(560,50,"fixed")
   engine = Engine.create();
   world = engine.world;
 
@@ -46,14 +46,14 @@ function setup() {
   tetoWall = new Wall(200,0, 400, 10);
 
   //criando os botões 
-  // buttonLeft = createImg('./assets/pointLeft.png');
-  // buttonLeft.position(width +480,height/2 +10);
-  // buttonLeft.size(50, 50);
+   buttonLeft = createImg('./assets/pointLeft.png');
+   buttonLeft.position(width +480,height/2 +10);
+   buttonLeft.size(50, 50);
   // buttonLeft.mouseClicked(leftForce)
 
-  // buttonRight = createImg('./assets/pointRight.png');
-  // buttonRight.position(width/2 +380,height/2 +10);
-  // buttonRight.size(50, 50);
+  buttonRight = createImg('./assets/pointRight.png');
+   buttonRight.position(width/2 +380,height/2 +10);
+   buttonRight.size(50, 50);
   // buttonRight.mouseClicked(rigthForce)
   
   //adicionar o modo do desenho da forma
@@ -78,16 +78,25 @@ function draw() {
   //ellipse(ball.position.x,ball.position.y,20);
   image(ballImg, ball.position.x, ball.position.y,60,60);
   imageMode(CENTER);
- 
+  rigthForce()
+  leftForce()
 }
 
 //criando funções de aplicar força:
 function rigthForce(){
-  //if(keyCode === RIGHT_ARROW){ 
-  Matter.Body.applyForce(ball, {x:0, y:0}, {x:0.07, y:-0.07} )
-  //}
+  if(keyCode === RIGHT_ARROW){ 
+  Matter.Body.applyForce(ball, {x:0, y:0}, {x:0.01, y:-0.01} )
+  
+}
 }
 
-const leftForce =()=>{
-  Matter.Body.applyForce(ball,{x:0, y:0}, {x:-0.07, y:-0.07});
+function leftForce (){
+ 
+
+  if(keyCode === LEFT_ARROW){ 
+    Matter.Body.applyForce(ball, {x:0, y:0}, {x:-0.01, y:-0.01} )
+    
+  }
+  
+
 }
