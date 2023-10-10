@@ -131,40 +131,27 @@ function draw() {
   push()
   imageMode(CENTER);
   //condição para não dar erro na imagem
-  // if(hoop!=null){ 
-  // //imagem retangulo
-  // image(hoopImg, hoop.position.x, hoop.position.y, 220,300)
-  // }
-  // pop()
+  if(hoop!=null){ 
+  //imagem retangulo
+  image(hoopImg, hoop.position.x, hoop.position.y, 220,300)
+  }
+  pop()
  
-  // if (collide(ball, blococesta1) == true) {
-  //   Matter.World.remove(world, hoop);
-  //   hoop = null;
-  //   score += 1;
+  if (collide(ball, blococesta1) == true) {
+    Matter.World.remove(world, hoop);
+    hoop = null;
+    score += 1;
   
-  //   // Crie a segunda cesta (hoop2) e posicione-a corretamente
-  //   var hoop2_options = {
-  //     isStatic: true,
-  //     restitution: 0.5
-  //   };
-  //   hoop2 = Bodies.rectangle(hoop.position.x + 50, hoop.position.y - 50, 50, 70, hoop2_options);
-  //   World.add(world, hoop2);
-  // }
+    // Crie a segunda cesta (hoop2) e posicione-a corretamente
+    var hoop2_options = {
+      isStatic: true,
+      restitution: 0.5
+    };
+    hoop2 = Bodies.rectangle(hoop.position.x + 50, hoop.position.y - 50, 50, 70, hoop2_options);
+    World.add(world, hoop2);
+  }
   
-  // if (hoop2 != null && collide(ball, hoop2) == true) {
-  //   Matter.World.remove(world, hoop2);
-  //   hoop2 = null;
-  //   score += 1;
-  
-  //   // Recoloque a primeira cesta (hoop) no local original
-  //   var hoop_options = {
-  //     isStatic: true,
-  //     restitution: 0.5
-  //   };
-  //   hoop = Bodies.rectangle(50, 350, 50, 70, hoop_options);
-  //   World.add(world, hoop);
-  // }
-  
+
   if(collide(ball, blococesta1)==true){
     setTimeout(() => {
       Matter.World.remove(world, hoop);
